@@ -1,43 +1,97 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Livre index{% endblock %}
+{% block title %}Livres{% endblock %}
+
 
 {% block body %}
-    <h1>Livre index</h1>
+ <header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Isbn</th>
-                <th>Titre</th>
-                <th>Nombre_pges</th>
-                <th>Date_de_parution</th>
-                <th>Note</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for livre in livres %}
-            <tr>
-                <td>{{ livre.id }}</td>
-                <td>{{ livre.isbn }}</td>
-                <td>{{ livre.titre }}</td>
-                <td>{{ livre.nombrePges }}</td>
-                <td>{{ livre.dateDeParution ? livre.dateDeParution|date('Y-m-d') : '' }}</td>
-                <td>{{ livre.note }}</td>
-                <td>
-                    <a href="{{ path('livre_show', {'id': livre.id}) }}">show</a>
-                    <a href="{{ path('livre_edit', {'id': livre.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
+      <div id="logo">
+        <h1><a href="/">BookStore</h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" title="" /></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="/livre">Livres</a></li>
+          <li><a class="nav-link scrollto" href="/auteur">Auteurs</a></li>
+          <li class="dropdown"><a href="#"><span>Catégories</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">Drop Down 1</a></li>
+              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="/login">Login</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+ <main id="main">
+  <section class="container" data-aos="fade-up">
+    <div ><div class="section-title text-center"> <p class="separator">Decouvrez les meilleurs ventes des livres disponibles</p>
+    </div>
+		<div class="container-table100">
+		<div class="wrap-table100">
+		    <div class="table100 ver3 m-b-110">
+					<div class="table100-head">
+				    <table>
+    
+                    <thead >
+                    
+                        <tr class="row100 head">
+                            <th  class="row100 column1">Id</th>
+                            <th  class="row100 column2">Isbn</th>
+                            <th class="row100 column3">Titre</th>
+                            <th class="row100 column4">Nombre_pages</th>
+                            <th class="row100 column5">Date_de_parution</th>
+                            <th class="row100 column6">Note</th>
+                            <th class="row100 column7">actions</th>
+                        </tr>
+                     
+                    </thead>
+                </table>
+            </div>
+
+            <div class="table100-body js-pscroll">
+             <table>
+			    <tbody>
+            {% for livre in livres %}
+					<tr class="row100 body">
+                        <td class="cell100 column1">{{ livre.id }}</td>
+                        <td class="cell100 column2">{{ livre.isbn }}</td>
+                        <td class="cell100 column3">{{ livre.titre }}</td>
+                        <td class="cell100 column4">{{ livre.nombrePages }}</td>
+                        <td class="cell100 column5">{{ livre.dateDeParution ? livre.dateDeParution|date('Y-m-d') : '' }}</td>
+                        <td class="cell100 column6">{{ livre.note }}</td>
+                        <td class="cell100 column7">
+                          <a href="{{ path('livre_show', {'id': livre.id}) }}">show</a>
+                          <a href="{{ path('livre_edit', {'id': livre.id}) }}">edit</a>
+                        </td>
+                    </tr>
+             {% else %}
+            <tr class="row100 body">
                 <td colspan="7">no records found</td>
             </tr>
-        {% endfor %}
+            {% endfor %} 
         </tbody>
-    </table>
+            </table>
+         </div>
+        </div>
+       </div>
+       </div>
+       </div>
 
     <a href="{{ path('livre_new') }}">Create new</a>
+    </div>
+    </div>
+    </section>
+</main>
 {% endblock %}

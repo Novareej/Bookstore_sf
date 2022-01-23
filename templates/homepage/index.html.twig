@@ -1,0 +1,183 @@
+{% extends 'base.html.twig' %}
+{% block title %}Bookstore{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Bookstore</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href={{asset('eStartup/assets/vendor/aos/aos.css')}} rel="stylesheet">
+  <link href={{asset('eStartup/assets/vendor/bootstrap/css/bootstrap.min.css')}} rel="stylesheet">
+  <link href={{asset('eStartup/assets/vendor/bootstrap-icons/bootstrap-icons.css')}} rel="stylesheet">
+  <link href={{asset('eStartup/assets/vendor/glightbox/css/glightbox.min.css')}} rel="stylesheet">
+  <link href={{asset('eStartup/assets/vendor/swiper/swiper-bundle.min.css"')}} rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href={{asset('eStartup/assets/css/style.css')}} rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: eStartup - v4.7.1
+  * Template URL: https://bootstrapmade.com/estartup-bootstrap-landing-page-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div id="logo">
+        <h1><a href="index.html.twig">BookStore</h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" title="" /></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="/livre">Livres</a></li>
+          <li><a class="nav-link scrollto" href="/auteur">Auteurs</a></li>
+          <li class="dropdown"><a href="#"><span>Catégories</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#">Drop Down 1</a></li>
+              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="#">Drop Down 3</a></li>
+              <li><a href="#">Drop Down 4</a></li>
+            </ul>
+          </li>
+           {% if not app.user %}
+          <li><a class="nav-link scrollto" href="/login">Login</a></li>
+          <li><a class="nav-link scrollto" href="/register">Register</a></li>
+          {% endif %}
+           {% if app.user  %} {% if app.user.roles[0]=="ROLE_ADMIN"  %}
+                <li><a href="#">ADMIN</a></li>
+                {% endif %}
+                <li><a href={{path('app_logout')}}><i class="fas fa-sign-out-alt"></i> LogOut</a></li>
+            {% endif %}
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container" data-aos="fade-in">
+      <h1>Welcome to our Bookstore</h1>
+       <img src="Assets/images/Knowledge-cuate.png" alt="Knowledge-cuate.png" data-aos="zoom-out" data-aos-delay="100" width="25%" height="50%">
+    </div>
+
+  </section><!-- End Hero Section -->
+
+  
+  
+  <main id="main">
+    <section class="container" data-aos="fade-up">
+    <div><div class="section-title text-center">
+
+          <h2>Meilleurs Ventes</h2>
+          <p class="separator">Decouvrez les meilleurs ventes des livres disponibles</p>
+
+        </div>
+		<div class="container-table100">
+		<div class="wrap-table100">
+		    <div class="table100 ver3 m-b-110">
+					<div class="table100-head">
+				    <table>
+    
+                    <thead >
+                    
+                        <tr class="row100 head">
+                            <th  class="row100 column1">Id</th>
+                           
+                            <th class="row100 column3">Titre</th>
+                            <th class="row100 column4">Nombre_pages</th>
+                            <th class="row100 column5">Auteur</th>
+                            
+                        </tr>
+                     
+                    </thead>
+                </table>
+            </div>
+
+            <div class="table100-body js-pscroll">
+             <table>
+			    <tbody>
+            {% for livre in livres %}
+					<tr class="row100 body">
+                        <td class="cell100 column1">{{ livre.id }}</td>
+                        <td class="cell100 column3">{{ livre.titre }}</td>
+                        <td class="cell100 column4">{{ livre.nombrePages }}</td>
+                        <td class="cell100 column5">{% for auteur in livre.auteurs %}{{auteur}}{% endfor %}</td>
+        
+                    </tr>
+             {% else %}
+            <tr class="row100 body">
+                <td colspan="7">no records found</td>
+            </tr>
+            {% endfor %} 
+        </tbody>
+            </table>
+         </div>
+        </div>
+       </div>
+       </div>
+       </div>
+
+    <a href="{{ path('livre_new') }}">Create new</a>
+ </div>
+    </div>
+    </section>
+</main>
+
+    <div class="copyrights">
+      <div class="container">
+        <p>&copy; Copyrights eStartup. All rights reserved.</p>
+        <div class="credits">
+          <!--
+          All the links in the footer should remain intact.
+          You can delete the links only if you purchased the pro version.
+          Licensing information: https://bootstrapmade.com/license/
+          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=eStartup
+        -->
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+      </div>
+    </div>
+
+  </footer><!-- End  Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+ 
+
+</body>
+
+</html>
+
+
+{% endblock %}

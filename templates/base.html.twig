@@ -6,14 +6,56 @@
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
+         <!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href={{asset('Assets/images/icons/favicon.ico')}}/>
+    <!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={{asset('Assets/vendor/bootstrap/css/bootstrap.min.css')}}> 
+    <!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={{asset('Assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}>
+    <!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={{asset('Assets/vendor/animate/animate.css')}}>
+    <!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={{asset('Assets/vendor/select2/select2.min.css')}}>
+    <!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={{asset('Assets/vendor/perfect-scrollbar/perfect-scrollbar.css')}}>
+    <!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={{asset('Assets/css/util.css')}}>
+	<link rel="stylesheet" type="text/css" href={{asset('Assets/css/main.css')}}>
+    <!--===============================================================================================-->
+
+     <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <!-- Template Main CSS File -->
+  <link href={{asset('eStartup/assets/css/style.css')}} rel="stylesheet">
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
 
+   
+
         {% block javascripts %}
+        
+ <!-- Vendor JS Files -->
+  <script src={{asset('eStartup/assets/vendor/jquery/jquery-3.2.1.min.js')}}></script>
+  <script src={{asset('eStartup/assets/vendor/aos/aos.js')}}></script>
+  <script src={{asset('eStartup/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}></script>
+  <script src={{asset('eStartup/assets/vendor/glightbox/js/glightbox.min.js')}}></script>
+  <script src={{asset('eStartup/assets/vendor/swiper/swiper-bundle.min.js')}}></script>
+  <script src={{asset('eStartup/assets/vendor/php-email-form/validate.js')}}></script>
+
+  <!-- Template Main JS File -->
+  <script src={{  asset('eStartup/assets/js/main.js')}}></script>
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+        
+        
+        {% endblock %}
     </body>
 </html>

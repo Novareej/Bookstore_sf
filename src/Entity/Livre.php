@@ -32,7 +32,7 @@ class Livre
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $nombre_pges;
+    private $nombre_pages;
 
     /**
      * @ORM\Column(type="date", nullable=true)
@@ -89,14 +89,14 @@ class Livre
         return $this;
     }
 
-    public function getNombrePges(): ?int
+    public function getNombrePages(): ?int
     {
-        return $this->nombre_pges;
+        return $this->nombre_pages;
     }
 
-    public function setNombrePges(?int $nombre_pges): self
+    public function setNombrePages(?int $nombre_pages): self
     {
-        $this->nombre_pges = $nombre_pges;
+        $this->nombre_pages = $nombre_pages;
 
         return $this;
     }

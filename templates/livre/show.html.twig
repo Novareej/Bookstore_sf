@@ -2,17 +2,22 @@
 
 {% block title %}Livre{% endblock %}
 
+{% block head %} 
+  
+
+{% endblock %}
+
 {% block body %}
     <h1>Livre</h1>
 
     <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
+            <tr  class="row100 head">
+                <th class="cell100 column1">Id</th>
                 <td>{{ livre.id }}</td>
             </tr>
             <tr>
-                <th>Isbn</th>
+                <th class="cell100 column2">Isbn</th>
                 <td>{{ livre.isbn }}</td>
             </tr>
             <tr>
@@ -20,8 +25,8 @@
                 <td>{{ livre.titre }}</td>
             </tr>
             <tr>
-                <th>Nombre_pges</th>
-                <td>{{ livre.nombrePges }}</td>
+                <th>Nombre_pages</th>
+                <td>{{ livre.nombrePages }}</td>
             </tr>
             <tr>
                 <th>Date_de_parution</th>
