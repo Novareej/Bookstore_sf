@@ -105,15 +105,13 @@
         </div>
 		<div class="container-table100">
 		<div class="wrap-table100">
-		    <div class="table100 ver3 m-b-110">
+		    <div class="table100 ver2 m-b-110">
 					<div class="table100-head">
 				    <table>
     
                     <thead >
                     
                         <tr class="row100 head">
-                            <th  class="row100 column1">Id</th>
-                           
                             <th class="row100 column3">Titre</th>
                             <th class="row100 column4">Nombre_pages</th>
                             <th class="row100 column5">Auteur</th>
@@ -129,7 +127,7 @@
 			    <tbody>
             {% for livre in livres %}
 					<tr class="row100 body">
-                        <td class="cell100 column1">{{ livre.id }}</td>
+                    
                         <td class="cell100 column3">{{ livre.titre }}</td>
                         <td class="cell100 column4">{{ livre.nombrePages }}</td>
                         <td class="cell100 column5">{% for auteur in livre.auteurs %}{{auteur}}{% endfor %}</td>
